@@ -1,19 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - YZ Smart Factory</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f9; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .login-container { 
+            background-color: #fff; 
+            padding: 40px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            width: 320px; 
+            text-align: center; 
+        }
+        h2 { margin-top: 0; color: #003366; }
+        input[type="text"], input[type="password"] { 
+            width: 100%; 
+            padding: 10px; 
+            margin: 10px 0 20px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            box-sizing: border-box; 
+        }
+        button { 
+            background-color: #0056b3; 
+            color: white; 
+            padding: 12px 15px; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-weight: bold;
+            font-size: 16px;
+        }
+        button:hover { background-color: #004494; }
+    </style>
 </head>
 <body>
-    <h2>YZ Smart Factory - Login</h2>
-    <form method="POST" action="/">
-        <label>E-mail:</label>
-        <input type="text" name="cadastro" required><br><br>
-        
-        <label>Senha:</label>
-        <input type="password" name="senha" required><br><br>
-        
-        <button type="submit">Entrar</button>
-    </form>
+    <div class="login-container">
+        <h2>YZ Smart Factory</h2>
+        <p>Acesso ao Ecossistema</p>
+        <form method="POST" action="/">
+            <label style="text-align: left; display: block; font-weight: bold;">Número de Matrícula:</label>
+            <input type="text" name="matricula" placeholder="Ex: 12345" required>
+            
+            <label style="text-align: left; display: block; font-weight: bold;">Palavra-passe:</label>
+            <input type="password" name="senha" placeholder="A sua palavra-passe" required>
+            
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
 </body>
 </html>
