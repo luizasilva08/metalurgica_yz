@@ -22,22 +22,16 @@ HEADERS = {
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
+        # Pegamos a matrícula que veio do HTML
+        cadastro = request.form['cadastro']
         senha = request.form['senha']
         
-        # 1. Faz o Login usando a API de Autenticação do Supabase
+        # O TRUQUE: Transformamos a matrícula em um e-mail falso para o Supabase
+        email_falso = f"{cadastro}@yz.com"
+        
+        # O resto do código continua igual, mas enviamos o email_falso!
         url_auth = f"{SUPABASE_URL}/auth/v1/token?grant_type=password"
-        dados_login = {"email": email, "password": senha}
-        
-        resposta_auth = requests.post(url_auth, json=dados_login, headers=HEADERS)
-        
-        if resposta_auth.status_code == 200:
-            dados_usuario = resposta_auth.json()
-            user_id = dados_usuario['user']['id']
-            
-            # 2. Busca o cargo do usuário (RBAC) na tabela 'perfis' via API REST
-            url_perfil = f"{SUPABASE_URL}/rest/v1/perfis?id=eq.{user_id}&select=cargo"
-            resposta_perfil = requests.get(url_perfil, headers=HEADERS)
+        dados_login = {"email": email_falso, "password": senha}
             
             if resposta_perfil.status_code == 200 and len(resposta_perfil.json()) > 0:
                 cargo = resposta_perfil.json()[0]['cargo']
