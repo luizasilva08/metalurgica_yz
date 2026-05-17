@@ -1,18 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-PT">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel da Chefia - YZ Smart Factory</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+        .header { display: flex; justify-content: space-between; align-items: center; background-color: #003366; color: white; padding: 15px 25px; border-radius: 5px; }
+        .header h1 { margin: 0; font-size: 24px; }
+        .btn-sair { color: white; text-decoration: none; font-weight: bold; background: #cc0000; padding: 8px 15px; border-radius: 3px; }
+        .btn-sair:hover { background: #a30000; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .card h3 { margin-top: 0; color: #003366; }
+        iframe { width: 100%; height: 350px; border: none; border-radius: 4px; }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo à Gestão Estratégica</h1>
-    <a href="/logout">Sair</a>
-    
-    <h2>Consumo Energético</h2>
-    <iframe title="Power BI Consumo" width="800" height="600" 
-            src="LINK_DE_INCORPORACAO_DO_SEU_POWER_BI" 
-            frameborder="0" allowFullScreen="true">
-    </iframe>
+    <div class="header">
+        <h1>Painel Estratégico - Direção e Chefia</h1>
+        <a href="/logout" class="btn-sair">Sair do Sistema</a>
+    </div>
 
-    <h2>Registro de Reclamações (Operadores)</h2>
-    </body>
+    <p>Bem-vindo ao centro de controlo global de dados da Metalúrgica YZ.</p>
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <h3>Ponto de Desperdícios de Resíduos (Classe I)</h3>
+            <iframe src="LINK_DO_SEU_POWER_BI_AQUI" title="Power BI Desperdícios"></iframe>
+        </div>
+        <div class="card">
+            <h3>Lucro, ROI e Margem</h3>
+            <iframe src="LINK_DO_SEU_POWER_BI_AQUI" title="Power BI Lucro"></iframe>
+        </div>
+        <div class="card">
+            <h3>Status Global das Máquinas e Fábrica</h3>
+            <iframe src="LINK_DO_SEU_POWER_BI_AQUI" title="Power BI Maquinas"></iframe>
+        </div>
+        <div class="card">
+            <h3>Consumo Energético e Matéria-Prima</h3>
+            <iframe src="LINK_DO_SEU_POWER_BI_AQUI" title="Power BI Consumo"></iframe>
+        </div>
+    </div>
+</body>
 </html>
