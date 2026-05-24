@@ -1,0 +1,6 @@
+{
+  "name": "WEG+ Portal",
+  "description": "Portal corporativo WEG+ com gestão de pedidos, suporte, máquinas e EPIs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

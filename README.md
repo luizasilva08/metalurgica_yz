@@ -1,2 +1,20 @@
-# metalurgica_yz
-Criação de um ecossistema integrado chamado "YZ Smart Factory" para a metalúrgica YZ. Criado pela consultoria Orkestria .Tech
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
+
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/fde48bee-5651-4d8b-a907-6d1c42f9cd9c
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
