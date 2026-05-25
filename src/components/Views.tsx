@@ -78,7 +78,7 @@ export function Pedidos() {
       const { data, error } = await supabase
         .from('pedidos')
         .select('*')
-        .order('data_pedido', { ascending: false });
+        .order('created_at', { ascending: false });
 
       if (error) throw error;
       setPedidos(data || []);
@@ -153,7 +153,7 @@ export function Suporte() {
       const { data, error } = await supabase
         .from('chamados')
         .select('*')
-        .order('data_abertura', { ascending: false });
+        .order('created_at', { ascending: false });
 
       if (error) throw error;
       setChamados(data || []);
@@ -198,7 +198,7 @@ export function Suporte() {
             <div key={c.id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
               <div>
                 <h3 className="font-semibold text-slate-900">{c.titulo}</h3>
-                <p className="text-sm text-slate-500">{new Date(c.data_abertura).toLocaleDateString()} • {c.equipamento || 'Sem equipamento vinculado'}</p>
+                <p className="text-sm text-slate-500">{new Date(c.created_at).toLocaleDateString()} • {c.equipamento || 'Sem equipamento vinculado'}</p>
               </div>
               <div>
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold
@@ -322,7 +322,7 @@ export function EPI() {
       const { data, error } = await supabase
         .from('epis')
         .select('*')
-        .order('data_solicitacao', { ascending: false });
+        .order('created_at', { ascending: false });
 
       if (error) throw error;
       setEpis(data || []);
@@ -367,7 +367,7 @@ export function EPI() {
             <div key={e.id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
               <div>
                 <h3 className="font-semibold text-slate-900">{e.equipamento}</h3>
-                <p className="text-sm text-slate-500">{new Date(e.data_solicitacao).toLocaleDateString()} • Tamanho: {e.tamanho || 'Não especificado'}</p>
+                <p className="text-sm text-slate-500">{new Date(e.created_at).toLocaleDateString()} • Tamanho: {e.tamanho || 'Não especificado'}</p>
               </div>
               <div>
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold
@@ -447,7 +447,7 @@ export function Denuncias() {
       const { data, error } = await supabase
         .from('denuncias')
         .select('*')
-        .order('data_registro', { ascending: false });
+        .order('created_at', { ascending: false });
 
       if (error) throw error;
       setDenuncias(data || []);
@@ -493,7 +493,7 @@ export function Denuncias() {
              <div key={d.id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
                <div>
                  <h3 className="font-semibold text-slate-900">{d.titulo}</h3>
-                 <p className="text-sm text-slate-500">{new Date(d.data_registro).toLocaleDateString()} • {d.categoria}</p>
+                 <p className="text-sm text-slate-500">{new Date(d.created_at).toLocaleDateString()} • {d.categoria}</p>
                </div>
                <div>
                  <span className={`px-3 py-1 rounded-full text-xs font-semibold

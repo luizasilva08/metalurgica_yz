@@ -14,16 +14,16 @@ export function ChefiaDashboard({ session, setActiveTab }: { session?: Session, 
     async function fetchData() {
       try {
         // Fetch Denuncias (Reclamações/Áreas de atenção dashboard adaptation)
-        const { data: dData } = await supabase.from('denuncias').select('*').order('data_registro', { ascending: false }).limit(3);
-        if (dData) setDenuncias(dData);
+        const { data: dData, error: dError } = await supabase.from('denuncias').select('*').order('created_at', { ascending: false }).limit(3);
+        if (!dError && dData) setDenuncias(dData);
 
         // Fetch EPIs
-        const { data: epiData } = await supabase.from('epis').select('*, profiles(nome)').order('data_solicitacao', { ascending: false }).limit(3);
-        if (epiData) setEpis(epiData);
+        const { data: epiData, error: epiError } = await supabase.from('epis').select('*, profiles(nome)').order('created_at', { ascending: false }).limit(3);
+        if (!epiError && epiData) setEpis(epiData);
 
         // Fetch Logs (Registro de logins simulado em tabela 'logs' ou usando base customizada)
-        const { data: logsData } = await supabase.from('logs').select('*').order('created_at', { ascending: false }).limit(3);
-        if (logsData) setLogs(logsData);
+        const { data: logsData, error: logsError } = await supabase.from('logs').select('*').order('created_at', { ascending: false }).limit(3);
+        if (!logsError && logsData) setLogs(logsData);
 
       } catch (err) {
         console.error("Error fetching data for ChefiaDashboard", err);
@@ -165,7 +165,7 @@ export function ChefiaDashboard({ session, setActiveTab }: { session?: Session, 
                   <div key={i} className="flex justify-between items-center p-3 border border-slate-100 rounded-lg">
                     <div>
                       <span className="text-sm font-medium text-[#0a1220]">{req.equipamento}</span>
-                      <p className="text-xs text-slate-500 mt-0.5">{req.profiles?.nome || 'Operador'} • {new Date(req.data_solicitacao).toLocaleDateString()}</p>
+                      <p className="text-xs text-slate-500 mt-0.5">{req.profiles?.nome || 'Operador'} • {new Date(req.created_at).toLocaleDateString()}</p>
                     </div>
                     <span className={`text-[10px] uppercase font-bold px-2 py-1 rounded-full ${
                       req.status === 'Pendente' ? 'bg-amber-100 text-amber-700' : 

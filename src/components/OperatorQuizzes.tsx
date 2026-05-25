@@ -13,15 +13,15 @@ export function Treinamentos() {
       duracao: '25 min',
       perguntas: 3,
       conteudo: [
-        'A Metalúrgica YZ foi fundada em 2007 em Caxias do Sul (RS) por dois irmãos torneiros mecânicos.',
-        'Hoje somos 42 colaboradores, com foco em usinagem de precisão e estruturas soldadas para o setor agrícola.',
+        'A Metalúrgica YZ foi fundada em 1995 em Caxias do Sul (RS) por dois irmãos torneiros mecânicos.',
+        'Hoje somos 18 colaboradores, com foco em usinagem de precisão e estruturas soldadas para o setor agrícola.',
         'Nossos valores: segurança em primeiro lugar, qualidade no que entregamos e respeito ao colega de chão de fábrica.',
         'Horário padrão: turno 1 das 07h às 16h48 com 1h de almoço. Tolerância de 5 minutos.'
       ],
       quiz: [
         {
           pergunta: 'Em que cidade e ano a Metalúrgica YZ foi fundada?',
-          opcoes: ['Bento Gonçalves, 2010', 'Caxias do Sul, 2007', 'Porto Alegre, 2001'],
+          opcoes: ['Bento Gonçalves, 2010', 'Caxias do Sul, 1995', 'Porto Alegre, 2001'],
           correta: 1
         },
         {

@@ -53,12 +53,18 @@ export function Sidebar({ activeTab, setActiveTab, session, isChefia }: SidebarP
   return (
     <aside className="w-64 bg-[#0a1220] flex flex-col h-full text-slate-300">
       {/* Logo Area */}
-      <div className="h-16 flex items-center px-6 border-b border-white/5">
-        <div className="flex items-center gap-3">
+      <div className="h-32 flex items-center justify-center px-6 border-b border-white/5 py-4">
+        <img src="/atuallll.png" alt="Metalúrgica YZ" className="h-24 w-full object-contain" onError={(e) => {
+          // Fallback if atuallll.png is not found
+          e.currentTarget.style.display = 'none';
+          const fallback = document.getElementById('sidebar-logo-fallback');
+          if (fallback) fallback.style.display = 'flex';
+        }} />
+        <div id="sidebar-logo-fallback" className="hidden items-center gap-3 w-full">
           <div className="bg-white/10 text-white text-xs font-bold px-2 py-1.5 rounded border border-white/10 tracking-widest">
             YZ
           </div>
-          <span className="text-white font-bold text-lg tracking-wide">Metalúrgica <span className="text-[#00A3FF]">YZ</span></span>
+          <span className="text-white font-bold text-lg tracking-wide shrink-0">Metalúrgica <span className="text-[#00A3FF]">YZ</span></span>
         </div>
       </div>
 

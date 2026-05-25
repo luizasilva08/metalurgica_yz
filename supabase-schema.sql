@@ -64,3 +64,32 @@ ALTER TABLE public.denuncias ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Usuários podem ver denúncias que criaram (não anônimas)" ON public.denuncias FOR SELECT USING (auth.uid() = autor_id);
 -- Todos autenticados podem inserir denúncias
 CREATE POLICY "Qualquer usuário logado pode criar denúncias" ON public.denuncias FOR INSERT WITH CHECK (auth.uid() IS NOT NULL);
+
+-- 5. Criação da tabela de Pedidos
+CREATE TABLE IF NOT EXISTS public.pedidos (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  profile_id UUID REFERENCES public.profiles(id),
+  produto TEXT NOT NULL,
+  quantidade INT NOT NULL,
+  total NUMERIC NOT NULL,
+  status TEXT DEFAULT 'Pendente',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  data_pedido TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.pedidos ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Usuários podem ver seus próprios pedidos" ON public.pedidos FOR SELECT USING (auth.uid() = profile_id);
+CREATE POLICY "Usuários podem criar pedidos" ON public.pedidos FOR INSERT WITH CHECK (auth.uid() = profile_id);
+
+-- 6. Criação da tabela de Logs
+CREATE TABLE IF NOT EXISTS public.logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  profile_id UUID REFERENCES public.profiles(id),
+  acao TEXT NOT NULL,
+  detalhes TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.logs ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Usuários logados podem inserir logs" ON public.logs FOR INSERT WITH CHECK (auth.uid() = profile_id);
+CREATE POLICY "Usuários logados podem ler seus logs" ON public.logs FOR SELECT USING (auth.uid() = profile_id);

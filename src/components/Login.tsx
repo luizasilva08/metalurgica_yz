@@ -95,11 +95,18 @@ export function Login({ onLoginSuccess, defaultState = 'login', onBack, onTempLo
       
       {/* Left Side - Visual presentation */}
       <div className="w-full md:w-1/2 bg-[#0A3078] text-white flex flex-col justify-between p-8 md:p-16">
-        <div className="flex items-center gap-3">
-          <div className="text-white font-bold text-sm tracking-widest">
-            YZ
+        <div className="h-28 w-80 relative">
+          <img src="/atuallll.png" alt="Metalúrgica YZ" className="h-28 w-full object-contain object-left absolute inset-0" onError={(e) => {
+            e.currentTarget.style.display = 'none';
+            const fallback = document.getElementById('login-logo-fallback');
+            if (fallback) fallback.style.display = 'flex';
+          }} />
+          <div id="login-logo-fallback" className="hidden items-center gap-3 h-full">
+            <div className="text-white font-bold text-sm tracking-widest">
+              YZ
+            </div>
+            <span className="font-semibold text-lg">Metalúrgica YZ</span>
           </div>
-          <span className="font-semibold text-lg">Metalúrgica YZ</span>
         </div>
 
         <div className="max-w-md">

@@ -488,7 +488,7 @@ export function Sobre() {
 
       <div className="bg-white border border-slate-200 p-8 rounded-xl text-slate-600 text-sm leading-relaxed space-y-4">
         <p>
-          A <strong>Metalúrgica YZ</strong> nasceu em 2007 na garagem dos irmãos Yago e Zélio Cordeiro, dois torneiros mecânicos que decidiram largar o turno da noite numa grande indústria para tentar algo próprio. O nome veio do jeito mais simples possível: as iniciais dos dois fundadores.
+          A <strong>Metalúrgica YZ</strong> nasceu em 1995 na garagem dos irmãos Yago e Zélio Cordeiro, dois torneiros mecânicos que decidiram largar o turno da noite numa grande indústria para tentar algo próprio. O nome veio do jeito mais simples possível: as iniciais dos dois fundadores.
         </p>
         <p>
           Os primeiros anos foram de usinagem sob encomenda para vizinhas do bairro industrial — eixos, buchas, flanges, pequenos lotes que ninguém grande queria atender. Em 2012, com a compra do primeiro torno CNC usado, a YZ passou a fornecer peças seriadas para fabricantes de equipamentos agrícolas da região e nunca mais parou de crescer.
